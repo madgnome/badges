@@ -31,6 +31,22 @@
     <entry_points version="2.0" />
   </component>
   <component name="IdProvider" IDEtalkID="DCEA269B399881869A3AA529036945D9" />
+  <component name="InspectionProjectProfileManager">
+    <profiles>
+      <profile version="1.0" is_locked="false">
+        <option name="myName" value="Project Default" />
+        <option name="myLocal" value="false" />
+        <inspection_tool class="SpellCheckingInspection" enabled="true" level="TYPO" enabled_by_default="true">
+          <option name="processCode" value="false" />
+          <option name="processLiterals" value="false" />
+          <option name="processComments" value="true" />
+        </inspection_tool>
+      </profile>
+    </profiles>
+    <option name="PROJECT_PROFILE" value="Project Default" />
+    <option name="USE_PROJECT_PROFILE" value="true" />
+    <version value="1.0" />
+  </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="-target 1.6" />
   </component>
@@ -190,6 +206,9 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+  </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="libraryTable">
     <library name="Maven: aopalliance:aopalliance:1.0">
@@ -322,17 +341,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-plugin/0.12.4/activeobjects-plugin-0.12.4-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: com.atlassian.activeobjects:activeobjects-spi:0.12.4">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-spi/0.12.4/activeobjects-spi-0.12.4.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-spi/0.12.4/activeobjects-spi-0.12.4-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/atlassian/activeobjects/activeobjects-spi/0.12.4/activeobjects-spi-0.12.4-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.atlassian.activeobjects:activeobjects-test:0.12.4">
@@ -1820,17 +1828,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-highlighter/2.9.3/lucene-highlighter-2.9.3-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.apache.lucene:lucene-memory:2.9.3">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-memory/2.9.3/lucene-memory-2.9.3.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-memory/2.9.3/lucene-memory-2.9.3-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-memory/2.9.3/lucene-memory-2.9.3-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.apache.lucene:lucene-misc:2.9.3">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-misc/2.9.3/lucene-misc-2.9.3.jar!/" />
@@ -1840,17 +1837,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-misc/2.9.3/lucene-misc-2.9.3-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.lucene:lucene-queries:2.2.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-queries/2.2.0/lucene-queries-2.2.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-queries/2.2.0/lucene-queries-2.2.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-queries/2.2.0/lucene-queries-2.2.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.apache.pdfbox:fontbox:1.2.1">

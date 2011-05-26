@@ -1,6 +1,5 @@
 package com.tcs.confluence.plugins.badges.rules;
 
-import com.atlassian.confluence.event.events.ConfluenceEvent;
 import com.atlassian.confluence.event.events.security.LoginEvent;
 import com.atlassian.event.api.EventListener;
 import com.atlassian.event.api.EventPublisher;
@@ -14,6 +13,8 @@ import java.util.Date;
 
 public class NightHawkRule extends AbstractEventBasedRule<LoginEvent>
 {
+  private static final int BEDTIME_FOR_NIGHTHAWK = 4;
+
   public NightHawkRule(EventPublisher eventPublisher, UserManager userManager, AchievementManager achievementManager)
   {
     super(eventPublisher, userManager, achievementManager);
@@ -26,9 +27,9 @@ public class NightHawkRule extends AbstractEventBasedRule<LoginEvent>
     Calendar calendar = Calendar.getInstance();
     calendar.setTime(date);
 
-    if (calendar.get(Calendar.HOUR) < 100)
+    if (calendar.get(Calendar.HOUR) < BEDTIME_FOR_NIGHTHAWK)
     {
-//      addAchievement(loginEvent);
+      addAchievement(loginEvent);
     }
   }
 
