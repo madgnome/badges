@@ -1,0 +1,14 @@
+[
+  {
+    "ref": "newbie",
+    "name": "Newbie",
+    "catchPhrase": "That's the beginning of your journey",
+    "description": "First login in MSC"
+  },
+  {
+    "ref": "night_hawk",
+    "name": "Night Hawk",
+    "catchPhrase": "Can't sleep?",
+    "description": "Login after midnight local time"
+  }
+]

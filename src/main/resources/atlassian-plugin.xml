@@ -1,0 +1,64 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+  </plugin-info>
+
+  <!-- Active objects declaration -->
+  <ao key="ao-module">
+    <description>The module configuring the Active Objects service used by this plugin</description>
+    <entity>com.tcs.confluence.plugins.badges.data.ao.Achievement</entity>
+    <entity>com.tcs.confluence.plugins.badges.data.ao.UserAchievement</entity>
+    <entity>com.tcs.confluence.plugins.badges.data.ao.UserWrapper</entity>
+    <upgradeTask>com.tcs.confluence.plugins.badges.data.upgrades.v1.InitUpgradeTask</upgradeTask>
+  </ao>
+
+  <!-- Component Import -->
+  <component-import key="eventPublisher" interface="com.atlassian.event.api.EventPublisher"/>
+  <component-import key="pluginEventManager" interface="com.atlassian.plugin.event.PluginEventManager"/>
+  <component-import key="activeObjects" interface="com.atlassian.activeobjects.external.ActiveObjects"/>
+
+  <!-- Components -->
+  <component key="tx-processor" name="Transactional Annotation Processor"
+             class="com.atlassian.activeobjects.external.TransactionalAnnotationProcessor">
+    <decription>Processes @Transactional annotations.</decription>
+  </component>
+
+  <component key="achievementDaoService" interface="com.tcs.confluence.plugins.badges.data.services.IAchievementDaoService"
+             class="com.tcs.confluence.plugins.badges.data.services.impl.AchievementDaoService"/>
+
+  <component key="userAchievementDaoService" interface="com.tcs.confluence.plugins.badges.data.services.IUserAchievementDaoService"
+             class="com.tcs.confluence.plugins.badges.data.services.impl.UserAchievementDaoService"/>
+
+  <component key="userWrapperDaoService" interface="com.tcs.confluence.plugins.badges.data.services.IUserWrapperDaoService"
+             class="com.tcs.confluence.plugins.badges.data.services.impl.UserWrapperDaoService"/>
+
+  <component key="achievementManager" class="com.tcs.confluence.plugins.badges.services.AchievementManager"/>
+  <component key="userManager" class="com.tcs.confluence.plugins.badges.services.UserManager"/>
+
+  <!-- Components : Rules -->
+  <component key="nightHawkRule" class="com.tcs.confluence.plugins.badges.rules.NightHawkRule"/>
+
+  <!-- Resource -->
+  <resource type="download" name="images/" location="includes/images/"/>
+
+  <web-resource name="Notifications resources" key="notification-resources">
+    <resource name="jquery.jgrowl_minimized.js" type="download" location="includes/js/plugins/jquery.jgrowl_minimized.js"/>
+    <resource name="jquery.corner.js" type="download" location="includes/js/plugins/jquery.corner.js"/>
+    <resource name="notification.js" type="download" location="includes/js/notification.js"/>
+
+    <resource name="jquery.jgrowl.css" type="download" location="includes/css/plugins/jquery.jgrowl.css"/>
+    <resource name="notification.css" type="download" location="includes/css/notification.css"/>
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+
+    <context>atl.general</context>
+    <context>atl.admin</context>
+  </web-resource>
+
+  <!-- REST -->
+  <rest key="rest-service-resources" path="/badges" version="1.0">
+    <description>Provides the REST resources for JIRAchievement plugin.</description>
+  </rest>
+
+</atlassian-plugin>
