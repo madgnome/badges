@@ -12,7 +12,9 @@ public class DatabaseProcessor implements DatabaseUpdater
   {
     entityManager.migrate(
             Achievement.class,
+            Statistic.class,
             UserAchievement.class,
+            UserStatistic.class,
             UserWrapper.class);
   }
 }
