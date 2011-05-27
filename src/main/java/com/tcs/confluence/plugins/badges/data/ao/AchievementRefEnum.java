@@ -3,7 +3,8 @@ package com.tcs.confluence.plugins.badges.data.ao;
 public enum AchievementRefEnum
 {
   NEWBIE("newbie"),
-  NIGHT_HAWK("night_hawk");
+  NIGHT_HAWK("night_hawk"),
+  TREASURE_HUNTER("treasure_hunter");
 
   private final String ref;
 

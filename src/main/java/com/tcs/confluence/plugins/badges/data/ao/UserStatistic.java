@@ -1,6 +1,7 @@
 package com.tcs.confluence.plugins.badges.data.ao;
 
 import net.java.ao.Entity;
+import net.java.ao.schema.Default;
 
 public interface UserStatistic extends Entity
 {
@@ -10,6 +11,7 @@ public interface UserStatistic extends Entity
   UserWrapper getUserWrapper();
   void setUserWrapper(UserWrapper userWrapper);
 
+  @Default("0")
   int getValue();
   void setValue(int value);
 
