@@ -27,7 +27,7 @@ public class NightHawkRule extends AbstractEventBasedRule<LoginEvent>
     Calendar calendar = Calendar.getInstance();
     calendar.setTime(date);
 
-    if (calendar.get(Calendar.HOUR) < BEDTIME_FOR_NIGHTHAWK)
+    if (calendar.get(Calendar.HOUR_OF_DAY) < BEDTIME_FOR_NIGHTHAWK)
     {
       addAchievement(loginEvent);
     }
