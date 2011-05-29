@@ -1,11 +1,12 @@
 package com.tcs.confluence.plugins.badges.data.upgrades.v1;
 
 import com.atlassian.activeobjects.external.ActiveObjects;
-import com.tcs.confluence.plugins.badges.data.ao.Achievement;
-import com.tcs.confluence.plugins.badges.data.ao.UserAchievement;
-import com.tcs.confluence.plugins.badges.data.ao.UserWrapper;
+import com.sun.corba.se.impl.oa.poa.ActiveObjectMap;
+import com.tcs.confluence.plugins.badges.data.ao.*;
 import com.tcs.confluence.plugins.badges.data.services.IAchievementDaoService;
+import com.tcs.confluence.plugins.badges.data.services.IStatisticDaoService;
 import com.tcs.confluence.plugins.badges.data.services.impl.AchievementDaoService;
+import com.tcs.confluence.plugins.badges.data.services.impl.StatisticDaoService;
 import com.tcs.confluence.plugins.badges.data.upgrades.AbstractUpgradeTask;
 import com.tcs.confluence.plugins.badges.utils.initializers.AchievementsInitializer;
 
@@ -14,7 +15,7 @@ public class InitUpgradeTask extends AbstractUpgradeTask
   @Override
   protected int getVersion()
   {
-    return 2;
+    return 5;
   }
 
   @Override
@@ -23,12 +24,15 @@ public class InitUpgradeTask extends AbstractUpgradeTask
     initializeAO(ao);
 
     initializeAchievements(ao);
+    initializeStatistics(ao);
   }
 
   private void initializeAO(ActiveObjects ao)
   {
     ao.migrate(Achievement.class,
+               Statistic.class,
                UserAchievement.class,
+               UserStatistic.class,
                UserWrapper.class);
   }
 
@@ -37,6 +41,15 @@ public class InitUpgradeTask extends AbstractUpgradeTask
     IAchievementDaoService achievementDaoService = new AchievementDaoService(ao);
     AchievementsInitializer achievementsInitializerinitializer = new AchievementsInitializer(achievementDaoService);
     achievementsInitializerinitializer.initialize();
+  }
+
+  private void initializeStatistics(ActiveObjects ao)
+  {
+    IStatisticDaoService statisticDaoService = new StatisticDaoService(ao);
+    for (StatisticRefEnum statisticRefEnum : StatisticRefEnum.values())
+    {
+      statisticDaoService.getOrCreate(statisticRefEnum);
+    }
   }
 
 }

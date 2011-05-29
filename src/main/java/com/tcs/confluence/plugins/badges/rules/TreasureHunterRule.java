@@ -13,26 +13,26 @@ import com.tcs.confluence.plugins.badges.services.UserManager;
 
 public class TreasureHunterRule extends AbstractEventBasedRule<SearchPerformedEvent>
 {
-  private IUserStatisticDaoService statisticDaoService;
+  private static final int SEARCH_COUNT = 5;
+  private final IUserStatisticDaoService userStatisticDaoService;
 
-  public TreasureHunterRule(EventPublisher eventPublisher, UserManager userManager, AchievementManager achievementManager)
+  public TreasureHunterRule(EventPublisher eventPublisher, UserManager userManager, AchievementManager achievementManager, IUserStatisticDaoService userStatisticDaoService)
   {
     super(eventPublisher, userManager, achievementManager);
+    this.userStatisticDaoService = userStatisticDaoService;
   }
 
   @EventListener
   public void check(SearchPerformedEvent event)
   {
     UserWrapper userWrapper = getUserWrapperForAchievement(event);
-    UserStatistic userStatistic = statisticDaoService.get(userWrapper, StatisticRefEnum.SEARCH_COUNT);
+    UserStatistic userStatistic = userStatisticDaoService.incrementAndGet(userWrapper, StatisticRefEnum.SEARCH_COUNT);
     int searchCount = userStatistic.getValue();
-    if (searchCount == 5)
+
+    if (searchCount == SEARCH_COUNT) // We use the equality to give the badge only one time.
     {
       addAchievement(event);
     }
-
-    userStatistic.setValue(++searchCount);
-    userStatistic.save();
   }
 
   @Override
