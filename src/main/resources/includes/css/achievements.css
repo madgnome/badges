@@ -1,0 +1,137 @@
+.achievement-full {
+  width: 350px;
+  height: 84px;
+  border: #d3d3d3 1px solid;
+  margin: 10px;
+
+  position: relative;
+}
+
+.achievement-config {
+  width: 300px;
+  height: 70px;
+  border: #d3d3d3 1px solid;
+  margin: 5px;
+
+  position: relative;
+  cursor: pointer;
+}
+
+.achievements-list .achievement-image {
+  float: left;
+  padding: 10px 10px;
+}
+
+.achievement-full .achievement-content {
+  margin: 10px 5px 5px 85px;
+}
+
+.achievement-config .achievement-content {
+  margin: 5px 5px 5px 45px;
+}
+
+.achievement-full .mask, .achievement-config .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: #CCC;
+}
+
+.achievement-config .mask.active {
+  visibility: hidden;
+}
+
+.table-display dt {
+  width: 120px;
+  float: left;
+  text-align: right;
+  padding-right: 15px;
+  font-weight: bold;
+}
+
+dt { clear: both; }
+
+.table-display dd
+{
+  float: left;
+  width: 24em;
+  margin: 0 0 0 0;
+}
+
+.achievements-summary meter {
+  width: 260px;
+  height: 20px;
+}
+
+/* Header-details-user */
+#header-user-achievements {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.achievement-count {
+  font-style: italic;
+}
+
+.achievement-red, .achievement-bronze, .achievement-silver, .achievement-gold {
+  padding-left: 10px;
+  background: transparent 0 0 no-repeat;
+}
+
+.achievement-red {
+  background-image: url('images/bullet_red.png');
+}
+
+.achievement-bronze {
+  background-image: url('images/bullet_orange.png');
+}
+
+.achievement-silver {
+  background-image: url('images/bullet_silver.png');
+}
+
+.achievement-gold {
+  background-image: url('images/bullet_yellow.png');
+}
+
+.achievement-full div.description-tip {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  padding-right: 16px;
+  background: transparent url('images/information.png') 0 0 no-repeat;
+
+  cursor: pointer;
+}
+
+.achievement-description {
+  padding: 5px 10px;
+  font-style: italic;
+}
+
+div.achievement-level {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 6px;
+}
+
+span.level {
+  font-style: italic;
+  font-size: 0.98em;
+}
+
+#kryptonite {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px
+}
+
+#kryptonite label {
+  font-style: italic;
+  margin: 0 5px;
+}

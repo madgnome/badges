@@ -1,0 +1,36 @@
+#* @vtlvariable name="achievements" type="java.util.List<com.tcs.confluence.plugins.badges.data.ao.Achievement>" *#
+#* @vtlvariable name="userWrapper" type="com.tcs.confluence.plugins.badges.data.ao.UserWrapper" *#
+
+<html>
+  <head>
+    <title>$generalUtil.htmlEncode($pageTitle)</title>
+    #requireResource("confluence.web.resources:aui-forms")
+    #requireResource("com.tcs.confluence.plugins.badges:user-achievements-details")
+  </head>
+
+  #applyDecorator("root")
+    #decoratorParam("context" "profile")
+    #decoratorParam("mode" "edit-profile")
+    #decoratorParam("helper" $action.helper)
+
+    <body>
+      <div class="user-badges">
+        <div class="achievements-list">
+          #foreach ($achievement in $achievements)
+            #parse ('/templates/badges/achievement-detail.vm')
+          #end
+        </div>
+      </div>
+    </body>
+  #end
+
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('.achievements-list').masonry({
+      singleMode: true,
+      itemSelector : '.achievement-full'
+    });
+  });
+</script>
+
+</html>

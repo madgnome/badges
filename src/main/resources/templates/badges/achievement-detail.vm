@@ -1,0 +1,27 @@
+#* @vtlvariable name="userWrapper" type="com.tcs.confluence.plugins.badges.data.ao.UserWrapper" *#
+#* @vtlvariable name="achievement" type="com.tcs.confluence.plugins.badges.data.ao.Achievement" *#
+#set ($done = false)
+#foreach($userAchievement in $userWrapper.achievements)
+  #if ($userAchievement.ref == $achievement.ref)
+    #set ($done = true)
+  #end
+#end
+
+#set($imgUrl = "$req.contextPath/download/resources/com.tcs.confluence.plugins.badges/images/achievements/${achievement.imageRef}.png")
+
+<div class="achievement-full">
+  <div class="achievement-image">
+    <img src="$imgUrl"
+         onerror="this.src='$req.contextPath/download/resources/com.tcs.confluence.plugins.badges/images/achievements/default.png';"/>
+  </div>
+  <div class="achievement-content">
+    <h4>
+      $achievement.name
+    </h4>
+    <span>$achievement.description</span>
+  </div>
+  #if ($done == false)
+    <div class="mask">
+    </div>
+  #end
+</div>

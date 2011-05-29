@@ -6,6 +6,8 @@ import com.tcs.confluence.plugins.badges.data.ao.UserWrapper;
 import com.tcs.confluence.plugins.badges.data.services.IAchievementDaoService;
 import com.tcs.confluence.plugins.badges.data.services.IUserAchievementDaoService;
 
+import java.util.List;
+
 public class AchievementManager
 {
   private final IAchievementDaoService achievementDaoService;
@@ -26,5 +28,10 @@ public class AchievementManager
     }
 
     return achievement;
+  }
+
+  public List<Achievement> allAchievements()
+  {
+    return achievementDaoService.all();
   }
 }

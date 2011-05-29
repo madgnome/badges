@@ -10,5 +10,17 @@
     "name": "Night Hawk",
     "catchPhrase": "Can't sleep?",
     "description": "Login after midnight local time"
+  },
+  {
+    "ref": "treasure_hunter",
+    "name": "Treasure Hunter",
+    "catchPhrase": "Yo Ho Ho And A Bottle Of Rum!",
+    "description": "Search function used 10 times"
+  },
+  {
+    "ref": "comment_cannon",
+    "name": "Comment Cannon",
+    "catchPhrase": "...",
+    "description": "Made 50 comments"
   }
 ]

@@ -56,6 +56,28 @@
     <context>atl.admin</context>
   </web-resource>
 
+  <web-resource name="User achievements resources" key="user-achievements-details">
+    <resource name="jquery.masonry.js" type="download" location="includes/js/plugins/jquery.masonry.js"/>
+    <resource name="achievements.css" type="download" location="includes/css/achievements.css"/>
+  </web-resource>
+
+  <!-- Web item -->
+  <web-item key="user-badges" name="User badges" section="system.profile.edit/yourprofile" weight="20">
+    <label>Badges</label>
+    <link>/users/showBadges.action</link>
+  </web-item>
+
+  <!-- Action -->
+  <xwork name="User Badges Action" key="user-badges-actions">
+    <package name="userbadges" extends="default" namespace="/users">
+      <default-interceptor-ref name="defaultStack" />
+
+      <action name="showBadges" class="com.tcs.confluence.plugins.badges.ui.actions.UserBadgesAction">
+        <result name="success" type="velocity">/templates/badges/userbadges.vm</result>
+      </action>
+    </package>
+  </xwork>
+
   <!-- REST -->
   <rest key="rest-service-resources" path="/badges" version="1.0">
     <description>Provides the REST resources for JIRAchievement plugin.</description>
