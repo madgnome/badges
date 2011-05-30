@@ -22,5 +22,11 @@
     "name": "Comment Cannon",
     "catchPhrase": "...",
     "description": "Made 50 comments"
+  },
+  {
+    "ref": "read_my_mind",
+    "name": "Read my mind",
+    "catchPhrase": "...",
+    "description": "Status updated 50 times"
   }
 ]

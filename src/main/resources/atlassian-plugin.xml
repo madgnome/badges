@@ -51,6 +51,7 @@
   <component key="nightHawkRule" class="com.tcs.confluence.plugins.badges.rules.NightHawkRule"/>
   <component key="treasureHunterRule" class="com.tcs.confluence.plugins.badges.rules.TreasureHunterRule"/>
   <component key="commentCannonRule" class="com.tcs.confluence.plugins.badges.rules.CommentCannonRule"/>
+  <component key="readMyMindRule" class="com.tcs.confluence.plugins.badges.rules.ReadMyMindRule"/>
 
   <!-- Resource -->
   <resource type="download" name="images/" location="includes/images/"/>

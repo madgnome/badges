@@ -15,7 +15,7 @@ public class InitUpgradeTask extends AbstractUpgradeTask
   @Override
   protected int getVersion()
   {
-    return 5;
+    return 6;
   }
 
   @Override
