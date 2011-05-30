@@ -4,7 +4,8 @@ public enum AchievementRefEnum
 {
   NEWBIE("newbie"),
   NIGHT_HAWK("night_hawk"),
-  TREASURE_HUNTER("treasure_hunter");
+  TREASURE_HUNTER("treasure_hunter"),
+  COMMENT_CANNON("comment_cannon");
 
   private final String ref;
 

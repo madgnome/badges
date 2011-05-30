@@ -50,6 +50,7 @@
   <!-- Components : Rules -->
   <component key="nightHawkRule" class="com.tcs.confluence.plugins.badges.rules.NightHawkRule"/>
   <component key="treasureHunterRule" class="com.tcs.confluence.plugins.badges.rules.TreasureHunterRule"/>
+  <component key="commentCannonRule" class="com.tcs.confluence.plugins.badges.rules.CommentCannonRule"/>
 
   <!-- Resource -->
   <resource type="download" name="images/" location="includes/images/"/>
