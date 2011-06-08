@@ -20,6 +20,7 @@
   <component-import key="eventPublisher" interface="com.atlassian.event.api.EventPublisher"/>
   <component-import key="pluginEventManager" interface="com.atlassian.plugin.event.PluginEventManager"/>
   <component-import key="activeObjects" interface="com.atlassian.activeobjects.external.ActiveObjects"/>
+  <component-import key="templateRenderer" interface="com.atlassian.templaterenderer.TemplateRenderer"/>
 
   <!-- Components -->
   <component key="tx-processor" name="Transactional Annotation Processor"
@@ -90,6 +91,12 @@
       </action>
     </package>
   </xwork>
+
+  <web-panel key="badges-panel" location="atl.confluence.userprofile" class="com.tcs.confluence.plugins.badges.ui.actions.ProfileBadgesPanel"/>
+    <!--<resource name="view" type="static">-->
+        <!--<![CDATA[<div id="test">Hello World!</div>]]>-->
+    <!--</resource>-->
+  <!--</web-panel>-->
 
   <!-- REST -->
   <rest key="rest-service-resources" path="/badges" version="1.0">

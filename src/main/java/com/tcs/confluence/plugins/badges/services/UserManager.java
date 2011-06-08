@@ -30,9 +30,9 @@ public class UserManager
     if (userWrapper == null)
     {
       userWrapper = userWrapperDaoService.getOrCreate(username);
+      addFirstAchievements(userWrapper);
     }
 
-    addFirstAchievements(userWrapper);
     return userWrapper;
   }
 

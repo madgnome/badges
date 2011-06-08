@@ -135,3 +135,22 @@ span.level {
   font-style: italic;
   margin: 0 5px;
 }
+
+.badge {
+  margin: 5px 0;
+  display: inline-block;
+}
+
+.badge img {
+  display: block;
+  margin: 0 auto;
+}
+
+.badge .name {
+  text-align: center;
+  width: 120px;
+}
+
+.badges-list span.msg {
+  font-style: italic;
+}

@@ -1,0 +1,26 @@
+#* @vtlvariable name="userWrapper" type="com.tcs.confluence.plugins.badges.data.ao.UserWrapper" *#
+
+<form id="userbadges" class="aui">
+  <h2>Badges</h2>
+  <div class="badges-list">
+    #set ($hasBadge = false)
+    #foreach ($achievement in $userWrapper.achievements)
+      <div class="badge">
+        <img src="$baseUrl/download/resources/com.tcs.confluence.plugins.badges/images/achievements/${achievement.imageRef}.png"
+           onerror="this.src='$baseUrl/download/resources/com.tcs.confluence.plugins.badges/images/achievements/default.png';"
+           title="$achievement.description"/>
+        <div class="name">$achievement.name</div>
+      </div>
+      #set ($hasBadge = true)
+    #end
+
+    #if ($hasBadge == false)
+      <span class="msg">You have no <a href="$baseUrl/users/showBadges.action">badge</a> yet.</span>
+    #end
+  </div>
+</form>
+
+<script type="text/javascript">
+// Put the badges section below the right panel
+jQuery('.profile-info.section-3').append(jQuery('#userbadges'));
+</script>
