@@ -1,10 +1,7 @@
 package com.tcs.confluence.plugins.badges.rules;
 
 import com.atlassian.confluence.event.events.ConfluenceEvent;
-import com.atlassian.confluence.event.events.search.SearchPerformedEvent;
-import com.atlassian.event.api.EventListener;
 import com.atlassian.event.api.EventPublisher;
-import com.tcs.confluence.plugins.badges.data.ao.AchievementRefEnum;
 import com.tcs.confluence.plugins.badges.data.ao.StatisticRefEnum;
 import com.tcs.confluence.plugins.badges.data.ao.UserStatistic;
 import com.tcs.confluence.plugins.badges.data.ao.UserWrapper;
@@ -25,13 +22,36 @@ public abstract class AbstractEventCountRule<T extends ConfluenceEvent> extends 
   protected void innerCheck(T event)
   {
     UserWrapper userWrapper = getUserWrapperForAchievement(event);
-    UserStatistic userStatistic = userStatisticDaoService.incrementAndGet(userWrapper, getStatisticRefEnum());
+
+    UserStatistic userStatistic;
+    switch (nextStatisticAction(event))
+    {
+      case INCREMENT:
+        userStatistic = userStatisticDaoService.incrementAndGet(userWrapper, getStatisticRefEnum());
+        break;
+      case RESET:
+        userStatisticDaoService.reset(userWrapper, getStatisticRefEnum());
+      case NOP:
+      default:
+        return;
+    }
+
     int searchCount = userStatistic.getValue();
 
     if (searchCount == getThreshold()) // We use the equality to give the badge only one time.
     {
       addAchievement(event);
     }
+  }
+
+  public StatisticAction nextStatisticAction(T event)
+  {
+    return StatisticAction.INCREMENT;
+  }
+
+  public boolean shouldIncrement(T event)
+  {
+    return true;
   }
 
   protected abstract StatisticRefEnum getStatisticRefEnum();

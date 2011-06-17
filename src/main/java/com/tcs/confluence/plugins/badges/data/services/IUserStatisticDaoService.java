@@ -11,4 +11,5 @@ public interface IUserStatisticDaoService extends IDaoService<UserStatistic>
   UserStatistic get(UserWrapper userWrapper, StatisticRefEnum statisticRefEnum);
   UserStatistic createOrUpdate(StatisticRefEnum statRef, UserWrapper userWrapper, int value);
   UserStatistic incrementAndGet(UserWrapper userWrapper, StatisticRefEnum statisticRefEnum);
+  UserStatistic reset(UserWrapper userWrapper, StatisticRefEnum statisticRefEnum);
 }

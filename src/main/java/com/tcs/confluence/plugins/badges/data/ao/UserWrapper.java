@@ -6,6 +6,8 @@ import net.java.ao.schema.Default;
 import net.java.ao.schema.NotNull;
 import net.java.ao.schema.Unique;
 
+import java.util.Date;
+
 public interface UserWrapper extends Entity
 {
   @Unique
@@ -22,4 +24,7 @@ public interface UserWrapper extends Entity
   @Default("true")
   boolean isActive();
   void setActive(boolean active);
+
+  Date getLastLogin();
+  void setLastLogin(Date loginDate);
 }

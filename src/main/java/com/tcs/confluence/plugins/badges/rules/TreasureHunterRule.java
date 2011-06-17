@@ -13,7 +13,7 @@ import com.tcs.confluence.plugins.badges.services.UserManager;
 
 public class TreasureHunterRule extends AbstractEventCountRule<SearchPerformedEvent>
 {
-  private static final int SEARCH_THRESHOLD = 5;
+  private static final int SEARCH_THRESHOLD = 10;
 
   public TreasureHunterRule(EventPublisher eventPublisher, UserManager userManager, AchievementManager achievementManager, IUserStatisticDaoService userStatisticDaoService)
   {

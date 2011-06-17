@@ -62,6 +62,16 @@ public class UserStatisticDaoService extends BaseDaoService<UserStatistic> imple
     return userStatistic;
   }
 
+  @Override
+  public UserStatistic reset(UserWrapper userWrapper, StatisticRefEnum statisticRefEnum)
+  {
+    UserStatistic userStatistic = get(userWrapper, statisticRefEnum);
+    userStatistic.setValue(0);
+    userStatistic.save();
+
+    return userStatistic;
+  }
+
   private UserStatistic getOrCreate(Statistic statistic, UserWrapper userWrapper)
   {
     final UserStatistic[] userStatistics = ao.find(UserStatistic.class, "STATISTIC_ID = ? AND USER_WRAPPER_ID = ?", statistic.getID(), userWrapper.getID());

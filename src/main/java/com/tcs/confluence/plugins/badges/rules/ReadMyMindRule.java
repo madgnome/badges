@@ -13,7 +13,7 @@ import com.tcs.confluence.plugins.badges.services.UserManager;
 
 public class ReadMyMindRule extends AbstractEventCountRule<StatusCreateEvent>
 {
-  private static final int STATUS_UPDATE_THRESHOLD = 5;
+  private static final int STATUS_UPDATE_THRESHOLD = 50;
 
   public ReadMyMindRule(EventPublisher eventPublisher, UserManager userManager, AchievementManager achievementManager, IUserStatisticDaoService userStatisticDaoService)
   {

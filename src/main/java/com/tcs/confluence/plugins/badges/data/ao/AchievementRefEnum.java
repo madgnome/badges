@@ -6,7 +6,8 @@ public enum AchievementRefEnum
   NIGHT_HAWK("night_hawk"),
   TREASURE_HUNTER("treasure_hunter"),
   COMMENT_CANNON("comment_cannon"),
-  READ_MY_MIND("read_my_mind");
+  READ_MY_MIND("read_my_mind"),
+  REGULAR("regular");
 
   private final String ref;
 

@@ -6,6 +6,8 @@ import com.tcs.confluence.plugins.badges.data.ao.AchievementRefEnum;
 import com.tcs.confluence.plugins.badges.data.ao.UserWrapper;
 import com.tcs.confluence.plugins.badges.data.services.IUserWrapperDaoService;
 
+import java.util.Calendar;
+
 public class UserManager
 {
   private final IUserWrapperDaoService userWrapperDaoService;
@@ -45,5 +47,17 @@ public class UserManager
   {
     // TODO: ugly, this class shouldn't know what achievements to add.
     achievementManager.addAchievementToUser(AchievementRefEnum.NEWBIE, userWrapper);
+  }
+
+  public void updateLastLogin(UserWrapper userWrapper, long timestamp)
+  {
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTimeInMillis(timestamp);
+    calendar.set(Calendar.HOUR, 0);
+    calendar.set(Calendar.MINUTE, 0);
+    calendar.set(Calendar.SECOND, 0);
+    calendar.set(Calendar.MILLISECOND, 0);
+
+    userWrapperDaoService.updateLastLogin(userWrapper, calendar.getTime());
   }
 }

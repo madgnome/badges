@@ -4,6 +4,8 @@ import com.atlassian.activeobjects.tx.Transactional;
 import com.atlassian.user.User;
 import com.tcs.confluence.plugins.badges.data.ao.UserWrapper;
 
+import java.util.Date;
+
 @Transactional
 public interface IUserWrapperDaoService extends IDaoService<UserWrapper>
 {
@@ -13,4 +15,6 @@ public interface IUserWrapperDaoService extends IDaoService<UserWrapper>
   UserWrapper getOrCreate(String confluenceUserName);
   UserWrapper get(User confluenceUser);
   UserWrapper get(String confluenceUserName);
+
+  UserWrapper updateLastLogin(UserWrapper userWrapper, Date time);
 }

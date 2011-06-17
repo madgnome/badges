@@ -6,6 +6,8 @@ import com.google.common.collect.ImmutableMap;
 import com.tcs.confluence.plugins.badges.data.ao.UserWrapper;
 import com.tcs.confluence.plugins.badges.data.services.IUserWrapperDaoService;
 
+import java.util.Date;
+
 public class UserWrapperDaoService extends BaseDaoService<UserWrapper> implements IUserWrapperDaoService
 {
   @Override
@@ -56,5 +58,14 @@ public class UserWrapperDaoService extends BaseDaoService<UserWrapper> implement
   {
     UserWrapper[] userWrappers = ao.find(UserWrapper.class, "USER_NAME = ?", jiraUserName);
     return userWrappers.length > 0 ? userWrappers[0] : null;
+  }
+
+  @Override
+  public UserWrapper updateLastLogin(UserWrapper userWrapper, Date time)
+  {
+    userWrapper.setLastLogin(time);
+    userWrapper.save();
+
+    return userWrapper;
   }
 }

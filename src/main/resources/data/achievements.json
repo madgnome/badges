@@ -28,5 +28,11 @@
     "name": "Read my mind",
     "catchPhrase": "...",
     "description": "Status updated 50 times"
+  },
+  {
+    "ref": "regular",
+    "name": "Regular",
+    "catchPhrase": "...",
+    "description": "Connect 5 days in a row"
   }
 ]
